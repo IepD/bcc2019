@@ -7,6 +7,7 @@ package janelasinternas;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Date;
 
 /**
  *
@@ -26,6 +27,20 @@ public class Cliente {
         String oldNome = this.nome;
         this.nome = nome;
         propertyChangeSupport.firePropertyChange(PROP_NOME, oldNome, nome);
+    }
+ 
+    private Date datanascimento;
+
+    public static final String PROP_DATANASCIMENTO = "datanascimento";
+
+    public Date getDatanascimento() {
+        return datanascimento;
+    }
+
+    public void setDatanascimento(Date datanascimento) {
+        Date oldDatanascimento = this.datanascimento;
+        this.datanascimento = datanascimento;
+        propertyChangeSupport.firePropertyChange(PROP_DATANASCIMENTO, oldDatanascimento, datanascimento);
     }
 
     private String endereco;
