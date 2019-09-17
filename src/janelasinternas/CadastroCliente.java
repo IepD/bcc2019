@@ -6,6 +6,7 @@
 package janelasinternas;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import org.jdesktop.beansbinding.AutoBinding;
 import org.jdesktop.beansbinding.BeanProperty;
@@ -238,13 +239,11 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ShowListaActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        if(tbClientes.getSelectedRows().length > 0 ){
-            int[] teste = tbClientes.getSelectedRows();
-            for(int t : teste)
-            {
-                lstClientes.remove(t);
-            }
-        }
+        int v[] = tbClientes.getSelectedRows();
+        List<Cliente> c = new LinkedList<>();
+        
+        for(int i=0;i<v.length;i++) c.add(lstClientes.get(v[i]));
+        lstClientes.removeAll(c);   
     }//GEN-LAST:event_btnExcluirActionPerformed
 
 
