@@ -9,7 +9,7 @@ import java.sql.Statement;
 /**
  * @author Lucas Dias
  */
-public class DAO {
+public abstract class DAO<E> {
     
     protected Connection conn;
     
@@ -32,8 +32,10 @@ public class DAO {
             System.out.println("Erro de conexão: "+ e.getMessage());
         }
     }
-    public static void main(String args[])
-    {
-        new DAO();
-    }
+    
+    public abstract boolean inserir(E e);
+    public abstract boolean editar(E e);
+    public abstract boolean excluir(E e);
+    public abstract boolean listar(E e);
+    
 }
